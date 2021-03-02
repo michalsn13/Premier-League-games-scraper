@@ -1,5 +1,5 @@
 class Con_parameters:
-    USER='postgres'
-    PASSWORD='@K1u2l3k4a5'
-    PORT='5432'
-    DATABASE='michal'
+    USER=#add own data
+    PASSWORD=#add own data
+    PORT=#add own data
+    DATABASE=#add own data
