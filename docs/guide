@@ -1,0 +1,4 @@
+#Guide for the project
+Packages:
+* Connection:
+  * 'con_parameters.sample.py'-parameters for connecting to localdatabase in 
