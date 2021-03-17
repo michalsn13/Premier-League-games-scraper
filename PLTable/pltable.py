@@ -1,8 +1,11 @@
 import psycopg2.errors
+import asyncio
+from time import time
 import plotly.graph_objects as pgo
 from .pltable_queries import Queries
 from Connection.connection import Connection
 from Gameweek.gameweek import Gameweek
+from Connection.async_con import Async_con
 class PLTable:
     @classmethod
     def new_table(self):
@@ -28,10 +31,13 @@ class PLTable:
                 self.add_game(game)
     @classmethod
     def update_table(self):
-        for i in range(1,39):
-            for game in Gameweek(i).games:
+        t0=time()
+        async_con=Async_con()
+        pages=[f'https://www.worldfootball.net/schedule/eng-premier-league-2020-2021-spieltag/{i}/' for i in range(1,39)]
+        for games in [Gameweek(i+1,j).games for i,j in enumerate(async_con.loop.run_until_complete(async_con.get_multiple_pages(*pages)))]:
+            for game in games:
                 self.add_game(game)
-
+        print(time()-t0)
     @classmethod
     def show_table(self):
         with Connection() as con:
@@ -93,12 +99,3 @@ class PLTable:
             else:
                 for game in x:
                     print(f'GW{game[0]} <{game[1]} {game[2]}> {game[3]} {game[5]} ({game[6]}) {game[4]}')
-
-
-
-
-
-
-
-
-
