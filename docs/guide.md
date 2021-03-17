@@ -15,6 +15,7 @@
   * Queries (file: */PLTable/pltable_queries.py*)- stores PostgreSQL queries for visualization of games data stored in SQLTable
 * environment classes:
   * Connection (file: */Connection/connection.py*)- simplifies connecting to the database with *enter* and *exit* dunder methods
+  * Async_con (file: */Connection/async_con.py*)- enables getting multiple htmls content asynchronously
 * data classes:
   * Game (file: */Game/game.py*)- scrapes from html-code and stores information about perticular game in instance's properties
   * Gameweek (file: */Gameweek/gameweek.py*)- scrapes from html-code and stores list of Game instances of a specified gameweek
@@ -23,5 +24,7 @@
  **Main files:**
  * *menu.py*- with function menu() manages methods used in data classes in a more "user friendly" way, runs perticular code from given input
  * *app.py*- runs menu() from *menu.py*
+ 
+
  
   
