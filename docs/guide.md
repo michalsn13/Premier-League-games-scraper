@@ -1,7 +1,7 @@
 ## Guide for the project
 
 **How to get started?**
- 1. Install those Python libraries (if necessary): *bs4*, *psycopg2*
+ 1. Install those Python libraries (if necessary): *bs4*, *psycopg2*, *aiohttp*, *asyncio*, *async_timeout*
  2. Be sure that you have PostgreSQL with existing database.
  3. Put your database logging parameters in */Connection/'con_parameters.sample.py'* file.
  4. Rename the file to *'con_parameters.py'* (delete that *'sample'* part)
